@@ -76,13 +76,16 @@ const CreatePost = ({ onPostCreated }) => {
         <div className="create-post-controls">
           <div className="file-input-wrapper">
             <input
+              id="fileInput"
               ref={fileInputRef}
               type="file"
               accept="image/*"
               onChange={handleImageChange}
               disabled={loading}
             />
-            <label htmlFor="image">📷 Add Image</label>
+            <button type="button" onClick={() => fileInputRef.current.click()}>
+              📷 Add Image
+            </button>
           </div>
 
           <label className="privacy-toggle">

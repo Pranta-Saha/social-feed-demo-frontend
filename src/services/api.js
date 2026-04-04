@@ -94,7 +94,7 @@ export const likesAPI = {
 
   // Like a comment
   likeComment: async (commentId) => {
-    const response = await fetch(`${API_BASE_URL}/api/comments/${commentId}/like`, {
+    const response = await fetch(`${API_BASE_URL}/api/posts/comments/${commentId}/like`, {
       method: 'POST',
       headers: getAuthHeaders(),
     });
@@ -104,7 +104,7 @@ export const likesAPI = {
 
   // Unlike a comment
   unlikeComment: async (commentId) => {
-    const response = await fetch(`${API_BASE_URL}/api/comments/${commentId}/unlike`, {
+    const response = await fetch(`${API_BASE_URL}/api/posts/comments/${commentId}/unlike`, {
       method: 'POST',
       headers: getAuthHeaders(),
     });
@@ -114,7 +114,7 @@ export const likesAPI = {
 
   // Like a reply
   likeReply: async (replyId) => {
-    const response = await fetch(`${API_BASE_URL}/api/replies/${replyId}/like`, {
+    const response = await fetch(`${API_BASE_URL}/api/posts/replies/${replyId}/like`, {
       method: 'POST',
       headers: getAuthHeaders(),
     });
@@ -124,7 +124,7 @@ export const likesAPI = {
 
   // Unlike a reply
   unlikeReply: async (replyId) => {
-    const response = await fetch(`${API_BASE_URL}/api/replies/${replyId}/unlike`, {
+    const response = await fetch(`${API_BASE_URL}/api/posts/replies/${replyId}/unlike`, {
       method: 'POST',
       headers: getAuthHeaders(),
     });
@@ -157,7 +157,7 @@ export const commentsAPI = {
 
   // Delete a comment
   deleteComment: async (commentId) => {
-    const response = await fetch(`${API_BASE_URL}/api/comments/${commentId}`, {
+    const response = await fetch(`${API_BASE_URL}/api/posts/comments/${commentId}`, {
       method: 'DELETE',
       headers: getAuthHeaders(),
     });
@@ -167,7 +167,7 @@ export const commentsAPI = {
 
   // Get who liked a comment
   getCommentLikes: async (commentId) => {
-    const response = await fetch(`${API_BASE_URL}/api/comments/${commentId}/likes`, {
+    const response = await fetch(`${API_BASE_URL}/api/posts/comments/${commentId}/likes`, {
       headers: getAuthHeaders(),
     });
     if (!response.ok) throw new Error('Failed to fetch comment likes');
@@ -179,7 +179,7 @@ export const commentsAPI = {
 export const repliesAPI = {
   // Get replies for a comment
   getReplies: async (commentId) => {
-    const response = await fetch(`${API_BASE_URL}/api/comments/${commentId}/replies`, {
+    const response = await fetch(`${API_BASE_URL}/api/posts/comments/${commentId}/replies`, {
       headers: getAuthHeaders(),
     });
     if (!response.ok) throw new Error('Failed to fetch replies');
@@ -188,7 +188,7 @@ export const repliesAPI = {
 
   // Create a reply
   createReply: async (commentId, content) => {
-    const response = await fetch(`${API_BASE_URL}/api/comments/${commentId}/replies`, {
+    const response = await fetch(`${API_BASE_URL}/api/posts/comments/${commentId}/replies`, {
       method: 'POST',
       headers: getAuthHeaders(),
       body: JSON.stringify({ content }),
@@ -199,7 +199,7 @@ export const repliesAPI = {
 
   // Delete a reply
   deleteReply: async (replyId) => {
-    const response = await fetch(`${API_BASE_URL}/api/replies/${replyId}`, {
+    const response = await fetch(`${API_BASE_URL}/api/posts/replies/${replyId}`, {
       method: 'DELETE',
       headers: getAuthHeaders(),
     });
@@ -209,7 +209,7 @@ export const repliesAPI = {
 
   // Get who liked a reply
   getReplyLikes: async (replyId) => {
-    const response = await fetch(`${API_BASE_URL}/api/replies/${replyId}/likes`, {
+    const response = await fetch(`${API_BASE_URL}/api/posts/replies/${replyId}/likes`, {
       headers: getAuthHeaders(),
     });
     if (!response.ok) throw new Error('Failed to fetch reply likes');
